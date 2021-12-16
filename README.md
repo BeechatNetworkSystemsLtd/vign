@@ -38,7 +38,7 @@ V1.0 - first version
 
 License Information
 -------------------
-The software is released under [GNU GENERAL PUBLIC LICENSE](https://raw.githubusercontent.com/BeechatNetworkSystemsLtd/vign/main/LICENSE).
+The software is released under [GNU GENERAL PUBLIC LICENSE Version 2](https://raw.githubusercontent.com/BeechatNetworkSystemsLtd/vign/main/LICENSE).
 All other trademarks, service marks and company names are the property of their respective owners.
 
 Distributed as-is; no warranty is given.
