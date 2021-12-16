@@ -10,7 +10,7 @@ Vign is a free-to-use and Open Source program, that allows users to encrypt, sig
 
 Installation
 -------------------
-* **Make sure you are using Linux and have installed Python 3.8 or higher**
+* **Make sure you are using a Linux x86 Distribution and have installed Python 3.8 or higher**
 * **Download by clicking [here](https://github.com/BeechatNetworkSystemsLtd/vign/archive/refs/heads/main.zip)** 
 * **Install requirements** - Navigate to the vign folder, open terminal and type ```pip3 install -r requirements.txt```.
 * **Run vign** - Then, on terminal type ``` python3 main.py ``` it should now be running.
