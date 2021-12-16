@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="{{url_for('static', filename='css/accounts/drop_down.css')}}">
+
+<div class="dd_btn">
+    <span>{{ cuser.account_name }}</span><span class="signed_name">{{ cuser.address }}</span>
+    <i class="bi bi-arrow-down-circle-fill ac_circle"></i>
+</div>
+
+<div class="dd dropddn" style="display: none;">
+    {% for user in users %}
+    <div class="account_names" onclick="changeUser({{user.id}});">
+        <span>{{ user.account_name }}</span>
+        <span class="signed_name">{{ user.address }}</span>
+    </div>
+    <hr class="dhr">
+    
+    {% endfor %}
+
+<!-- Pencil icon -->
+<i class="bi bi-pencil-square pencil_icon"></i>
+</div>
+    
+<script src="{{ url_for('static', filename='js/accounts/drop_down.js') }}"></script>

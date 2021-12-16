@@ -1,0 +1,26 @@
+.decryption_drag-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.decryption_icon{
+    font-size: 50px;
+    color: #00043a;
+}
+.decryption_drag-area header{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.decryption_drag-area button{
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.light_blue_btn{
+    color: white;
+    background-color: #0077b6;
+}

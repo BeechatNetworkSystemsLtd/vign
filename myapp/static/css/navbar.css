@@ -1,0 +1,76 @@
+
+.top-bar{
+  width: 100%;
+  height: 70px;
+  background-color: #00043a;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  box-sizing: border-box;
+  margin: 0px 0px;
+  justify-content: space-between;
+}
+#logo{
+width: 80px;
+height: 50px;
+margin-bottom: 8px;
+margin-left: 30px;
+margin-right: 30px;
+cursor: pointer;
+}
+
+.profile_pic{
+width: 50px;
+height: 50px;
+border-radius: 60px;
+padding: 3px;
+cursor: pointer;
+}
+
+.profile_pic:hover{
+  transform: rotate(180deg);
+  box-shadow: 2px 2px 5px white;
+  transition: all 0.7s;
+
+}
+
+.my-account-name{
+margin: 0px 15px;
+color: white;
+font-weight: 700;
+}
+
+.right-icons{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+margin-right: 20px;
+
+}
+
+.dropdown-item{
+cursor: pointer;
+}
+
+
+@font-face {
+  font-family: proxima_nova;
+  src: url(../fonts/ProximaNova-Regular.ttf);
+}
+
+@font-face {
+  font-family: futura;
+  src: url(../fonts/Futura_Bold.ttf);
+}
+
+body{
+  font-family: proxima_nova;
+}
+
+.proxima_font{
+  font-family: proxima_nova;
+}
+.futura_font{
+  font-family: futura;
+}

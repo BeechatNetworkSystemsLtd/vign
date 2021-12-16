@@ -1,0 +1,196 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary user_menu_btn" data-toggle="modal" data-target="#ModalTitle"
+    style="display: none;">
+    Users
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="ModalTitle" tabindex="-1" role="dialog" 
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
+    style="z-index: 1050;">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content ac_main_contacts" style="border-radius: 0px;">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="ModalTitle">My Accounts</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="close_btn">&times;</span>
+                </button>
+            </div>
+
+            <!-- search box -->
+            <div class="input-group">
+                <input type="search" class="form-control" placeholder="Search" aria-label="Search"
+                    aria-describedby="search-addon" id="search_box"
+                    style="border-radius: 0px;" />
+                <span class="input-group-text border-0" id="search-addon"
+                    style="border-radius: 0px;">
+                    <i class="fas fa-search"></i>
+                </span>
+            </div>
+
+
+            <div class="modal-body contact_list">
+                <button class="btn" id="ac_delete_btn"
+                style="border-radius: 0px; background-color: white; color: red; border: 1px solid red;">
+                <i class="bi bi-trash-fill"></i></button>
+                <button class="btn" id="ac_add_contact_btn" 
+                style="border-radius: 0px; background-color: #00043A; color: white;"><i class="bi bi-journal-plus"></i></button>
+                
+                <div class="dropdown" style="display: inline-block;">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
+                        style="border-radius: 0px; background-color: #00043A; color: white;">
+                       <i class="bi bi-box-arrow-up"></i>
+                    </button>
+                    <div class="dropdown-menu accounts_dropdown">
+                      <a class="dropdown-item" href="#" id="exp_sel_pub_key">Export selected public key</a>
+                      <a class="dropdown-item" href="#" id="exp_sel_pvt_key">Export selected private key</a>
+                      <a class="dropdown-item" href="#" id="exp_sel_all_data">Export private keys and contacts</a>
+                    </div>
+                  </div> 
+                <hr>
+                <form action="{{url_for('accounts.delete_user')}}" method="POST">
+                    {% for user in users %}
+                    <div class="person">
+                        <input type="checkbox" name="delete_id" value="{{user.id}}">
+                        <a href="#"
+                            onclick="ac_showEditForm('{{ user.id }}', '{{ user.account_name }}', '{{ user.ky_public_key }}', '{{ user.ky_private_key }}', '{{ user.dil_public_key }}', '{{ user.dil_private_key }}', '{{ user.address }}');">
+                            <span class="p_name">{{user.account_name}}</span></a>
+                            <input type="hidden" class="user_address" value='{{ user.address }}'>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                    <input type="submit" id="ac_submit_deletion_id" hidden>
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- Add contact div -->
+        <div class="add_contact modal-content" style="display: none;" id="ac_add_contact_form">
+            <div class="modal-header">
+                <span id="ac_contacts_back_btn" class="back_btn">
+                    <i class="bi bi-backspace-fill" style="color: #0077B6"></i></span>
+                <h5 class="modal-title text-center" id="">Create or import Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body contact_list">
+                <form method="POST" enctype="multipart/form-data" id="account_addition_form">
+                    <label for="name">Account Name: </label>
+                    <input type="text" placeholder="Bob" id="name" name="name" required>
+                    <span class="ac_upload_keys"><i class="bi bi-folder-plus"></i></span>
+                    <input type="file" name="ac_input_keys_file" id="ac_keys_file" hidden>
+
+                    <hr>
+                    <label for="ac_ki">Kyber private key: </label>
+                    <input type="text" placeholder="#Aiovlks1345#$&35dsfglj" id="ac_ki" 
+                    name="ki" required>
+                    <div class="cf_icons">
+                        <i class="bi bi-arrow-clockwise refresh_arrow kpi"></i>
+                        <span class="paste paste_kypub"><i class="bi bi-back"></i></span>
+                    </div>
+                    <hr>
+                    <label for="ac_di">Dilithium private key: </label>
+                    <input type="text" placeholder="%asfJsadjfjsadfio65423ASfle" id="ac_di" 
+                    name="di" required>
+                    <div class="cf_icons">
+                        <i class="bi bi-arrow-clockwise refresh_arrow dpi"></i>
+                        <span class="paste"><i class="bi bi-back"></i></span>
+                    </div> 
+                    <hr>
+
+                    <label for="c_address">Address: </label>
+                    <input type="text" placeholder="#Aiovlks1345#$&35dsfglj" 
+                        id="c_address" name="address" readonly>
+
+                    <!-- hidden objects -->
+                    <!-- <label for="ac_kp">Kyber public key: </label> -->
+                    <input type="text" placeholder="#Aiovlks1345#$&35dsfglj" 
+                        id="ac_kp" name="kp" hidden>
+
+                    <input type="text" placeholder="%asfJsadjfjsadfio65423ASfle" 
+                        id="ac_dp" name="dp" hidden>
+
+
+                    <input type="submit" value="Add Account" class="form_btn"
+                        formaction="{{ url_for('accounts.add_account') }}"
+                        style="border-radius: 0px;">
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Edit contact div -->
+        <div class="add_contact modal-content" style="display: none;" id="ac_edit_contact_form">
+            <div class="modal-header">
+                <span id="ac_edit_back_btn" class="back_btn">
+                    <i class="bi bi-backspace-fill" style="color: #0077B6"></i></span>
+                <h5 class="modal-title text-center" style="color: #00043A;">Edit Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body contact_list">
+                <form method="POST">
+                    <label for="ac_name">Contact Name: </label>
+                    <input type="text" placeholder="Bob" id="ac_name_ed" name="name">
+
+                    <hr>
+                    <label for="ac_ki">Kyber private key: </label>
+                    <input type="text" placeholder="#Aiovlks1345#$&35dsfglj" id="ac_ki_ed" name="ki">
+                    <div class="cf_icons">
+                        <span class="paste copy_ky_pub" data-clipboard-target="#ac_ki"><i class="bi bi-back"></i></span>
+
+                    </div>
+                    <hr>
+                    <label for="ac_di">Dilithium private key: </label>
+                    <input type="text" placeholder="%asfJsadjfjsadfio65423ASfle" id="ac_di_ed" 
+                        name="di">
+                    <div class="cf_icons">
+                        <span class="paste copy_dil_pub" data-clipboard-target="#ac_di"><i
+                                class="bi bi-back"></i></span>
+                    </div>
+
+                    <hr>
+                    <label for="ac_kp">Kyber public key: </label>
+                    <input type="text" placeholder="#Aiovlks1345#$&35dsfglj" id="ac_kp_ed" name="kp">
+                    <div class="cf_icons">
+                        <span class="paste copy_ky_pub" data-clipboard-target="#ac_kp"><i class="bi bi-back"></i></span>
+                    </div>
+                    <hr>
+                    <label for="ac_dp">Dilithium public key: </label>
+                    <input type="text" placeholder="%asfJsadjfjsadfio65423ASfle" id="ac_dp_ed" 
+                        name="dp">
+                    <div class="cf_icons">
+                        <span class="paste copy_dil_pub" data-clipboard-target="#ac_dp"><i
+                                class="bi bi-back"></i></span>
+                    </div>
+                    <hr>
+                    <label for="ac_address">Address: </label>
+                    <input type="text" placeholder="asdfasfd64xc32v1;lbhovnk" id="ac_address_ed" name="address" readonly>
+                    <div class="cf_icons">
+                        <span class="paste copy_address" data-clipboard-target="#ac_address"><i
+                                class="bi bi-back"></i></span>
+                    </div>
+                    <hr>
+                    <input type="hidden" value="" id="ac_edit_contact_id" name="_id">
+
+                    <input type="submit" value="Edit Contact" class="form_btn"
+                        formaction="{{ url_for('accounts.edit_account') }}"
+                        style="border-radius: 0px;">
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/accounts/accounts_popup.css') }}">
+<script src="{{ url_for('static', filename='js/accounts/accounts_popup.js') }}"></script>

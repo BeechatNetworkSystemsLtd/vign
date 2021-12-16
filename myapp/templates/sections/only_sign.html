@@ -1,0 +1,29 @@
+
+<div class="d-flex text-center flex-column">
+  <h4 class="blue_font futura_font" style="font-size: 45px;">Sign</h4>
+  <div class="sm_icon"><i class="fas fa-cloud-upload-alt"></i></div>
+  
+  <header class="sm_sign_header blue_font">Drag & Drop to Upload File</header>
+  <span class="sm_or blue_font">OR</span>
+
+  <button id="sm_sign_browse_button" style="border-radius: 0px;"
+  class="btn light_blue_btn font-weight-bold">Browse File</button>
+  <input type="file" id="sm_sign_browse_file" hidden>
+
+
+  <img src="{{ url_for('static', filename='images/pacman.gif') }}" alt=""
+    style="margin: 0 auto; width: 70px; height: 70px; display:none" 
+    class="pacman_sign">
+
+  <button id="sm_sign" style="display: none; border-radius: 0px;" 
+  class="btn light_blue_btn mt-2 font-weight-bold">
+  Sign</button>
+
+  <span class='sm_file_status blue_font' style="display: none; text-align: center;"></span>
+  <div class="mt-3">
+    <button id="sm_finish" style="display: none; border-radius: 0px;" 
+    onclick="window.location.reload()" class="btn light_blue_btn font-weight-bold">Finish</button>
+  </div>
+  
+</div>
+

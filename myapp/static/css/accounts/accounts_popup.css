@@ -1,0 +1,132 @@
+.input-group{
+    width: 80%;
+    margin: auto;
+}
+.bi{
+    font-size: larger;
+}
+
+.person{
+    display: flex;
+    align-items: center;
+    
+}
+hr{
+    background-color: rgba(0, 4, 58);
+    height: 2px;
+}
+
+.person > input{
+    width: 30px;
+    height: 30px;
+    border: 2px solid blue;
+    margin: 0px 20px 0px 5px;
+}
+.person > span{
+    font-size: larger;
+}
+
+#ac_contact_search_box{
+    width: 50%;
+    margin: 5px auto;
+    height: 40px;
+    width: 300px;
+    border: none;
+    text-align: center;
+}
+
+.ac_contact_list{
+    height: 400px;
+    overflow-y: auto;
+}
+
+
+/* Add contacts div */
+.add_cheader{
+    display: flex;
+    align-items: center;
+}
+
+.contact_select{
+    cursor: pointer;
+}
+.contact_select:hover{
+    background-color: #0121416b;
+}
+
+.back_btn{
+    margin-right: 70px;
+    margin-left: 30px;
+    cursor: pointer;
+    font-size: larger;
+}
+
+input[type=text]{
+    border: none;
+    margin-left: 20px;
+}
+
+.cf_icons{
+    float: right;
+}
+.paste{
+    margin: 0px 10px;
+    cursor: pointer;
+}
+
+.form_btn{
+    margin: 10px auto;
+    background-color: #00043a;
+    color: white;
+    border: 2px solid #0077b6;
+    border-radius: 5px;
+    display: block;
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.upload_keys, .upload_edit_keys{
+    cursor: pointer;
+    float: right;
+}
+
+.close_btn{
+    color: #00043a;
+}
+
+#search-addon{
+    cursor: pointer;
+    background-color: #00043a;
+    color: white;
+}
+#search_box{
+    border: 1px solid #00043a;
+}
+
+/* ac_modal new */
+
+#ModalTitle{
+    color: #00043a;
+}
+
+.refresh_arrow{
+    background-color: #00043a;
+    color: white;
+    padding: 3px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.accounts_dropdown{
+    background-color: #00043a;
+}
+.dropdown-item{
+    color: white;
+}
+
+/* upload folder */
+.ac_upload_keys{
+    float: right;
+    cursor: pointer;
+}

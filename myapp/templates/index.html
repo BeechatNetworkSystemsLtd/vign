@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% include "_navbar.html" %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        
+        {% for category, message in messages %}
+        <div class="alert alert-{{category}} text-center">
+            {{ message }}
+        </div>
+        {% endfor %}
+        
+{% endif %}
+{% endwith %}
+{% include "main.html" %}
+
+{% endblock body %}

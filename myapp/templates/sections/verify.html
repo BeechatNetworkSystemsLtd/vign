@@ -1,0 +1,64 @@
+
+    <div class="d-flex text-center flex-column">
+      <h4 class="blue_font futura_font" style="font-size: 45px;">Verify</h4>
+      <div class="icon2"><i class="fas fa-cloud-upload-alt"></i></div>
+      
+      <header class="sign_header2 blue_font">Drag & Drop to Upload File</header>
+      <span class="or2 blue_font">OR</span>
+      
+      <button id="sign_browse_button2" style="border-radius: 0px;"
+      class="btn light_blue_btn font-weight-bold">
+      Browse File</button>
+
+      <input type="file" id="sign_browse_file2" hidden>
+
+      <!-- Signature file name -->
+      <header class="signature_file_name"></header>
+
+      <!-- public file name -->
+      <header class="public_file_name"></header>
+
+
+      <button id="verify_btn" style="display: none; border-radius: 0px;" 
+            class="mt-2 btn light_blue_btn font-weight-bold">
+            Verify</button>
+
+      <h3 id="verification_result" class="blue_font"></h3>      
+    </div>
+    
+
+<!-- contacts selection modal -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" 
+data-target="#ContactsList" id="show_contacts_btn" hidden>
+  show Contacts
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="ContactsList" tabindex="-1" role="dialog" 
+  aria-labelledby="ContactsListTitle" aria-hidden="true"
+  style="z-index: 9999;">
+
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Select Contact</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+            id="contacts_close_btn">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% for con in contacts %}
+              <div class="person contact_select" onclick="selectContact({{con.id}});">
+                <span class="futura_font">{{con.name}}</span>
+            </div>
+            <hr>
+          {% endfor %}
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+

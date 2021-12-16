@@ -1,0 +1,119 @@
+<div class="split left drag-area">
+    <div class="centered">
+      <div class="flex_col">
+
+
+      <h4 class="blue_font futura_font display-4">Encrypt and Sign</h4>
+      <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+      
+      <header class="sign_header blue_font">Drag & Drop to Upload File</header>
+      <span class="or blue_font">OR</span>
+
+      <button id="sign_browse_button" style="border-radius: 0px;"
+      class="btn light_blue_btn font-weight-bold">
+      Browse File</button>
+      <input type="file" id="sign_browse_file" hidden>
+
+      <img src="{{ url_for('static', filename='images/pacman.gif') }}" alt=""
+        style="margin: 0 auto; width: 70px; height: 70px; display:none" 
+        class="pacman_sign">
+      <button id="sign" style="display: none; border-radius: 0px;" 
+        class="btn light_blue_btn mt-2 font-weight-bold">Encrypt & Sign</button>
+
+      <span class='file_status blue_font' style="display: none; text-align: center;"></span>
+      <div class="mt-3">
+        <button id="finish" style="display: none; border-radius: 0px;" 
+        onclick="window.location.reload()" 
+        class="btn light_blue_btn">Finish</button>
+      </div>
+
+
+    </div>
+    </div>
+  </div>
+
+
+<!-- Button trigger contats modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" 
+data-target="#enc_Sign_ContactsList" id="enc_sign_show_contacts_btn" hidden>
+  show Contacts
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="enc_Sign_ContactsList" tabindex="-1" role="dialog" aria-labelledby="ContactsListTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">Select Contact</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+            id="enc_sign_contacts_close_btn">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% for con in contacts %}
+              <div class="person contact_select" onclick="SelectContact({{con.id}});">
+                <span>{{con.name}}</span>
+            </div>
+            <hr>
+          {% endfor %}
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- IP:PORT modal -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" 
+data-target="#ip_port" id="ip_port_popup" hidden>
+  show Contacts
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="ip_port" tabindex="-1" role="dialog" aria-labelledby="ContactsListTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="margin-left:auto;">Send to...</h5>
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+            id="ip_port_close_btn">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style="float: inline-end;">
+          <label for="custom_ip">Custom IP</label> 
+          <input type="checkbox" name="" id="custom_ip">
+        </div>
+          <div class="form-group ip_field" style="display: none;">
+            <label>IP Address</label>
+            <input type="text" class="form-control" placeholder="125.254.89.8"
+              id="ip" style="margin: auto; width: 100%; border: 1px solid rgb(219, 215, 215);">
+          </div>
+          <div class="form-group">
+            <label>Port</label>
+            <input type="number" class="form-control" placeholder="Port"
+              id="port">
+          </div>
+          <img src="{{url_for('static', filename='images/loading.gif')}}" 
+                alt="" style="width: 150px; height: 150px; display: none; margin: auto;"
+                id="waiting_ip">
+          <button class="btn btn-primary mx-auto d-block"
+              id="send_ip_port">Send</button>
+              
+      </div>
+      
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,65 @@
+
+<div class="top-bar">
+    <img src="{{ url_for('static', filename='images/Vign_White.png') }}" alt="Beechat Logo"
+    id="logo" onclick="window.location.href='/'">
+    <div style="color: white; font-weight: bold; margin-right: auto;">
+        {% include "accounts/drop_down.html" %}
+        {% include "accounts/account_popup.html" %}
+    </div>
+            <div class="right-icons">
+                
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter"
+                            style="margin-left:50px; margin-right:20px; 
+                            background-color: #0077b6; color: white;
+                            font-weight: bold; border-radius: 0px;">
+                        Contacts
+                    </button>
+                    {% include "sections/contacts.html" %}
+
+                <span class="my-account-name"></span>
+                
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" 
+                    id="keysMenuButton" data-toggle="dropdown" aria-haspopup="true" 
+                    aria-expanded="false" hidden>  
+                    </button>
+                    
+                    <div class="dropdown-menu" aria-labelledby="keysMenuButton" 
+                    style="margin: 29px 0px 0px -115px; min-width: 14rem;
+                            background-color: rgba(0,4,58);
+                            border-radius: 0px;">
+                    
+                    <!-- Simple advance mode switch -->
+                    <div class="adv_mode">
+                        <span class="txt sm">Switch Mode</span> 
+                        <input type="checkbox" name="switch" />
+                        <div class="customcheck" style="transform: scale(1.2,1.2);">
+                        <div class="checkitem"></div>
+                        </div>
+                    </div>
+
+                    
+                    </div>
+                  </div>
+
+                  <img src="{{ url_for('static', filename='images/Settings_white.png') }}" 
+                    alt="profile pic" class="profile_pic mr-5">
+                
+            </div> 
+</div>
+<script src="{{ url_for('static', filename='js/upload_keys.js') }}"></script>
+
+
+<script>
+    let profile_pic = document.querySelector(".profile_pic");
+    let drop_btn = document.querySelector("#keysMenuButton");
+
+    profile_pic.addEventListener("click", function(e){
+        e.stopPropagation();
+
+        drop_btn.click();        
+           
+    })
+</script>
+

@@ -1,0 +1,107 @@
+.input-group{
+    width: 80%;
+    margin: auto;
+}
+.bi{
+    font-size: larger;
+}
+
+.person{
+    display: flex;
+    align-items: center;
+    
+}
+hr{
+    background-color: rgba(0, 4, 58, 0.82);
+    height: 2px;
+}
+
+.person > input{
+    width: 30px;
+    height: 30px;
+    border: 2px solid blue;
+    margin: 0px 20px 0px 5px;
+}
+.person > span{
+    font-size: larger;
+}
+
+#contact_search_box{
+    width: 50%;
+    margin: 5px auto;
+    height: 40px;
+    width: 300px;
+    border: none;
+    text-align: center;
+}
+
+.contact_list{
+    height: 400px;
+    overflow-y: auto;
+}
+
+
+/* Add contacts div */
+.add_cheader{
+    display: flex;
+    align-items: center;
+}
+
+.contact_select{
+    cursor: pointer;
+}
+.contact_select:hover{
+    background-color: #0121416b;
+}
+
+#delete_btn{
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+}
+#add_contact_btn{
+    background-color: #00043a;
+    color: white;
+}
+
+.back_btn{
+    margin-right: 70px;
+    margin-left: 30px;
+    cursor: pointer;
+    font-size: larger;
+}
+
+input[type=text]{
+    border: none;
+    margin-left: 20px;
+}
+
+.cf_icons{
+    float: right;
+}
+.paste{
+    margin: 0px 10px;
+    cursor: pointer;
+}
+
+.form_btn{
+    margin: 10px auto;
+    background-color: #00043a;
+    color: white;
+    border: 2px solid #0077b6;
+    border-radius: 5px;
+    display: block;
+    width: 200px;
+    height: 50px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.upload_keys, .upload_edit_keys{
+    cursor: pointer;
+}
+
+#search-addon{
+    cursor: pointer;
+}
+

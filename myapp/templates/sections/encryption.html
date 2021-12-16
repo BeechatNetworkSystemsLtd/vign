@@ -1,0 +1,58 @@
+
+    <div class="d-flex text-center flex-column">
+      <h4 class="blue_font futura_font" style="font-size: 45px;">Encrypt file</h4>
+      <div class="encryption_icon"><i class="fas fa-cloud-upload-alt"></i></div>
+      
+      <header class="encryption_sign_header blue_font">Drag & Drop to Upload File</header>
+      <h5 class="enc_public_key"></h5>
+
+      <span class="encryption_or blue_font">OR</span>
+
+      <button id="encryption_sign_browse_button" 
+        style="border-radius: 0px;"
+        class="btn light_blue_btn font-weight-bold">
+        Browse File</button>
+      <input type="file" id="encryption_sign_browse_file" hidden>
+      
+      <button id="encryption_btn" style="display: none; border-radius: 0px;" 
+        class="btn light_blue_btn mt-2 font-weight-bold">Start Encryption</button>
+
+
+      <button id="encrypt_btn" style="display: none; color: white; border-radius: 0px;"
+       class="btn light_blue_btn mt-4 font-weight-bold">Encrypt It</button>
+
+    </div>
+
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" 
+data-target="#enc_ContactsList" id="enc_show_contacts_btn" hidden>
+  show Contacts
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="enc_ContactsList" tabindex="-1" role="dialog" aria-labelledby="ContactsListTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">Select Contact</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+            id="enc_contacts_close_btn">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% for con in contacts %}
+              <div class="person contact_select" onclick="encContact({{con.id}});">
+                <span class="futura_font">{{con.name}}</span>
+            </div>
+            <hr>
+          {% endfor %}
+      </div>
+      
+    </div>
+  </div>
+</div>
+

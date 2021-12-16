@@ -1,0 +1,6 @@
+Flask_Session==0.4.0
+Flask==1.1.1
+Flask_SocketIO==5.1.1
+Flask_SQLAlchemy==2.5.1
+py7zr==0.16.1
+blake3==0.2.1

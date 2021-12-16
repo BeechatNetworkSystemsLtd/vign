@@ -1,2 +1,44 @@
-# vign
-Quantum-proof security, free for everyone. Protect sensitive information with the most advanced quantum-proof encryption and signing technology through our free-to-use program.
+![vign-logo](https://github.com/BeechatNetworkSystemsLtd/vign/raw/main/logo.png)
+###  Quantum-proof security, free for everyone. 
+
+![BNSLTD](https://beechat.network/wp-content/uploads/2021/02/powered-by-1.png)
+
+General
+-------------------
+
+Vign is a free-to-use and Open Source program, that allows users to encrypt, sign, verify and decrypt files using the CRYSTALS post-quantum cryptography suite combined with py7zip AES-256. The software runs completely offline.
+
+Installation
+-------------------
+* **Make sure you are using Linux and have installed Python 3.8 or higher**
+* **Download by clicking [here]()** 
+* **Install requirements** - Navigate to the vign folder, open terminal and type ```pip3 install -r requirements.txt```.
+* **Run vign** - Then, on terminal type ``` python3 main.py ``` it should now be running.
+* **Show interface** - to view the interface, navigate to ```127.0.0.1:5000``` on your browser.
+
+Images
+-------------------
+![image](https://github.com/BeechatNetworkSystemsLtd/vign/raw/main/screenshot1.png)
+
+Features
+-------------------
+
+* **Multiple identities**
+* **Encryption**
+* **Signing**
+* **Decryption**
+* **Verification**
+* **Capability to import/export users for backup**
+* **Store contacts** 
+
+
+Product Versions
+-------------------
+V1.0 - first version
+
+License Information
+-------------------
+The software is released under [Creative Commons ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/).
+All other trademarks, service marks and company names are the property of their respective owners.
+
+Distributed as-is; no warranty is given.

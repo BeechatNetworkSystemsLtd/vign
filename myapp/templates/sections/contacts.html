@@ -1,0 +1,143 @@
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content main_contacts">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="exampleModalLongTitle">Contacts</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+        <!-- search box -->
+        <div class="input-group">
+          <input type="search" class="form-control" placeholder="Search" aria-label="Search"
+            aria-describedby="search-addon" id="search_box"
+            style="border-radius: 0px;" />
+            <span class="input-group-text border-0" id="search-addon"
+              style="border-radius: 0px;">
+              <i class="fas fa-search"></i>
+            </span>
+        </div>
+
+
+        <div class="modal-body contact_list">
+          <button class="btn" id="delete_btn" style="border-radius: 0px;"><i class="bi bi-trash-fill"></i></button>
+          <button class="btn" id="add_contact_btn" style="border-radius: 0px;"><i class="bi bi-journal-plus"></i></button>
+          <hr>
+          <form action="{{url_for('contacts.delete')}}" method="POST">
+          {% for con in contacts %}
+              <div class="person">
+                <input type="checkbox" name="delete_id" value="{{con.id}}"> 
+                <a href="#" onclick="showEditForm(this);">
+                  <span class="p_name futura font-weight-bold">{{con.name}}</span></a>
+                <input type="hidden" value="{{con.id}}">
+                <input type="hidden" value="{{con.kyber_public_key}}">
+                <input type="hidden" value="{{con.dilithium_public_key}}">
+                <input type="hidden" value="{{con.address}}">
+            </div>
+            <hr>
+          {% endfor %}
+          <input type="submit" id="submit_deletion_id" hidden>
+        </form>
+          
+        </div>
+        
+      </div>
+
+      <!-- Add contact div -->
+  <div class="add_contact modal-content" style="display: none;" id="add_contact_form">
+    <div class="modal-header">
+      <span id="contacts_back_btn" class="back_btn">
+        <i class="bi bi-backspace-fill" style="color: #0077B6"></i></span>
+      <h5 class="modal-title text-center" id="">Add Contacts</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+      <div class="modal-body contact_list">
+        <form method="POST" enctype="multipart/form-data">
+          <label for="name">Contact Name: </label> 
+          <input type="text" placeholder="Bob" id="name" name="name">
+          
+          <hr> 
+          <label for="kp">Kyber public key: </label>
+          <input type="text" placeholder="#Aiovlks1345#$&35dsfglj" id="kp" name="kp">
+          <div class="cf_icons">
+            <span class="paste paste_kypub"><i class="bi bi-back"></i></span>
+            <span class="upload_keys"><i class="bi bi-folder-plus"></i></span>
+            <input type="file" name="keys_file" id="keys_file" hidden>
+          </div>
+          <hr>
+          <label for="dp">Dilithium public key: </label> 
+          <input type="text" placeholder="%asfJsadjfjsadfio65423ASfle" id="dp" name="dp">
+          <div class="cf_icons">
+            <span class="paste"><i class="bi bi-back"></i></span>
+          </div>
+          <hr> 
+
+
+          <input type="submit" value="Add Contact" class="form_btn"
+                formaction="{{ url_for('contacts.add_contact') }}"
+                style="border-radius: 0px;">
+        </form>
+      </div>
+    </div>
+
+
+      <!-- Edit contact div -->
+  <div class="add_contact modal-content" style="display: none;" id="edit_contact_form">
+    <div class="modal-header">
+      <span id="edit_back_btn" class="back_btn">
+        <i class="bi bi-backspace-fill" style="color: #0077B6"></i></span>
+      <h5 class="modal-title text-center" id="">Edit Contact</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+      <div class="modal-body contact_list">
+        <form method="POST">
+          <label for="ed_name">Contact Name: </label> 
+          <input type="text" placeholder="Bob" id="ed_name" name="name">
+          
+          <hr> 
+          <label for="ed_kp">Kyber public key: </label>
+          <input type="text" placeholder="#Aiovlks1345#$&35dsfglj" id="ed_kp" 
+                  name="kp" >
+          <div class="cf_icons">
+            <span class="paste copy_ky_pub" data-clipboard-target="#ed_kp"><i class="bi bi-back"></i></span>
+            <span class="upload_edit_keys"><i class="bi bi-folder-plus"></i></span>
+            <input type="file" name="edit_keys_file" id="edit_keys_file" hidden>
+          </div>
+          <hr>
+          <label for="ed_dp">Dilithium public key: </label> 
+          <input type="text" placeholder="%asfJsadjfjsadfio65423ASfle" id="ed_dp" name="dp">
+          <div class="cf_icons">
+            <span class="paste copy_dil_pub" data-clipboard-target="#ed_dp"><i class="bi bi-back"></i></span>
+          </div>
+          <hr> 
+          <label for="ed_address">Address: </label> 
+          <input type="text" placeholder="asdfasfd64xc32v1;lbhovnk" 
+              id="ed_address" name="address" readonly>
+          <div class="cf_icons">
+            <span class="paste copy_address" data-clipboard-target="#ed_address"><i class="bi bi-back"></i></span>
+          </div>
+          <hr>
+          <input type="hidden" value="" id="edit_contact_id" name="_id">
+
+          <input type="submit" value="Edit Contact" class="form_btn"
+                formaction="{{ url_for('contacts.edit_contact') }}"
+                style="border-radius: 0px;">
+        </form>
+      </div>
+
+    
+  </div>
+    </div>
+  </div>
+
+  
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contacts.css') }}">

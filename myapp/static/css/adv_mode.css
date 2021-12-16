@@ -1,0 +1,47 @@
+.adv_mode{
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+input[name="switch"]{
+    display:none;
+  }
+
+.customcheck {
+    width: 40px;
+    height: 20px;
+    border: 2px solid #BDBDBD;
+    border-radius: 20px;
+    background: #d8d8d8;
+    display: inline-block;
+    margin: 0px 20px;
+  }
+
+
+
+/* styles when inactive */
+.checkitem {
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    border: 2px solid #484848;
+    background-color: #696969;
+    margin: 1px;
+    margin-left: 2px;
+    transition: all 0.5s ease;
+  }
+  
+  /* styles when active */
+  .itemactive{
+    margin-left: 20px;
+    border: 2px solid white;
+    background-color: #0077b6;
+  }
+
+  .txt{
+      font-size: 18px;
+      color: #ffffff;
+  }
+
+
+

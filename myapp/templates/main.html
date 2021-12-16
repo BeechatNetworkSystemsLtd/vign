@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/encryption.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/decryption.css') }}">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
+<div class="mycontainer">
+
+<!-- This container is linked with "adv_mode.js" -->
+<div class="simple_container">
+    {% include "sections/sign.html" %}
+
+    {% include "sections/verify_decrypt.html" %}
+</div>
+
+<!-- Advance container items -->
+    <div id="NW" class="adv_container div_adv only_drag-area drag-area" 
+    style="display: none;">{% include "sections/only_sign.html" %}</div>
+
+
+    <div id="NE" class="adv_container div_adv drag-area2" style="display: none;">
+        {% include "sections/verify.html" %}</div>
+
+    <div id="SW" class="adv_container div_adv encryption_drag-area" 
+    style="display: none;">{% include "sections/encryption.html" %}</div>
+    
+    ​
+    <div id="SE" class="adv_container div_adv decryption_drag-area" 
+    style="display: none;">{% include "sections/decryption.html" %}</div>
+
+
+
+
+
+</div>
+
+<script src="{{ url_for('static', filename='js/sign.js') }}"></script>
+<script src="{{ url_for('static', filename='js/verify_decrypt.js') }}"></script>
+<script src="{{ url_for('static', filename='js/only_sign.js') }}"></script>
+<script src="{{ url_for('static', filename='js/verify.js') }}"></script>
+<script src="{{ url_for('static', filename='js/encryption.js') }}"></script>
+<script src="{{ url_for('static', filename='js/decryption.js') }}"></script>
+<script src="{{ url_for('static', filename='js/contacts_modal.js') }}"></script>
+
+
+<!-- clipboard.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/cp_fupload.js') }}"></script>
+
+<!-- advance mode -->
+<script src="{{ url_for('static', filename='js/adv_mode.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/adv_mode.css') }}">
+
+
+  

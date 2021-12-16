@@ -1,0 +1,60 @@
+<div class="split right vd_drag-area">
+    <div class="centered">
+      <div class="flex_col">
+
+
+      <h4 class="blue_font futura_font display-4">Verify and Decrypt</h4>
+      <div class="vd_icon"><i class="fas fa-cloud-upload-alt"></i></div>
+      
+      <header class="vd_header blue_font">Drag & Drop to Upload File</header>
+      <span class="vd_or blue_font">OR</span>
+
+      <button id="vd_browse_button" style="border-radius: 0px;" 
+      class="btn light_blue_btn font-weight-bold">
+      Browse File</button>
+      <input type="file" id="vd_browse_file" hidden>
+
+      
+      <img src="{{ url_for('static', filename='images/pacman.gif') }}" alt=""
+        style="margin: 0 auto; width: 70px; height: 70px; display:none" 
+        class="pacman_vd">
+      <button id="v_d" style="display: none; border-radius: 0px;" 
+        class="btn light_blue_btn mt-2 font-weight-bold">Verify and Decrypt</button>
+
+      <span class='vd_file_status blue_font' style="display: none; text-align: center;"></span>
+      
+    </div>
+    </div>
+  </div>
+
+
+<!-- Button trigger contats modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" 
+data-target="#vd_ContactsList" id="vd_show_contacts_btn" hidden>
+  show Contacts
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="vd_ContactsList" tabindex="-1" role="dialog" aria-labelledby="ContactsListTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">Select Contact</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+            id="vd_contacts_close_btn">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% for con in contacts %}
+              <div class="person contact_select" onclick="SelectVDContact({{con.id}});">
+                <span>{{con.name}}</span>
+            </div>
+            <hr>
+          {% endfor %}
+      </div>
+      
+    </div>
+  </div>
+</div>
+
