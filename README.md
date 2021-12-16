@@ -1,4 +1,4 @@
-![vign-logo](https://github.com/BeechatNetworkSystemsLtd/vign/raw/main/logo.png)
+![vign-logo](https://github.com/BeechatNetworkSystemsLtd/vign/raw/main/vign.png)
 ###  Quantum-proof security, free for everyone. 
 
 ![BNSLTD](https://beechat.network/wp-content/uploads/2021/02/powered-by-1.png)
