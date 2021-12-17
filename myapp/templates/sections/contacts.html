@@ -1,7 +1,7 @@
   <!-- Modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content main_contacts">
+      <div class="modal-content main_contacts" style="border-radius: 0px;">
         <div class="modal-header">
           <h5 class="modal-title text-center" id="exampleModalLongTitle">Contacts</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -46,7 +46,9 @@
       </div>
 
       <!-- Add contact div -->
-  <div class="add_contact modal-content" style="display: none;" id="add_contact_form">
+  <div class="add_contact modal-content" 
+    style="display: none; border-radius: 0px;" 
+    id="add_contact_form">
     <div class="modal-header">
       <span id="contacts_back_btn" class="back_btn">
         <i class="bi bi-backspace-fill" style="color: #0077B6"></i></span>
@@ -76,8 +78,6 @@
             <span class="paste"><i class="bi bi-back"></i></span>
           </div>
           <hr> 
-
-
           <input type="submit" value="Add Contact" class="form_btn"
                 formaction="{{ url_for('contacts.add_contact') }}"
                 style="border-radius: 0px;">
@@ -87,7 +87,10 @@
 
 
       <!-- Edit contact div -->
-  <div class="add_contact modal-content" style="display: none;" id="edit_contact_form">
+  <div class="add_contact modal-content" 
+  style="display: none; border-radius: 0px;" 
+  id="edit_contact_form">
+
     <div class="modal-header">
       <span id="edit_back_btn" class="back_btn">
         <i class="bi bi-backspace-fill" style="color: #0077B6"></i></span>
@@ -132,8 +135,6 @@
                 style="border-radius: 0px;">
         </form>
       </div>
-
-    
   </div>
     </div>
   </div>
